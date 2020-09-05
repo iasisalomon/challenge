@@ -1,21 +1,21 @@
 <template>
-  <div id="app">
-    <navbar msg="Welcome to Your Vue.js App"/>
+  <div class="container" id="app">
+    <appnavbar></appnavbar>
+    <apptable></apptable>
   </div>
 </template>
 
 <script>
-import navbar from './components/navbar.vue'
+import appNavbar from './components/appNavbar.vue'
+import appTable from './components/appTable.vue'
 
 export default {
-  name: 'App',
   components: {
-    navbar
+    'appnavbar':appNavbar,
+    'apptable':appTable,
   }
 }
 </script>
 
 <style>
-#app {
-}
 </style>
