@@ -11,7 +11,7 @@
       <td> {{USD.symbol}} {{USD.buy}}</td>
       <td> {{USD.symbol}} {{USD.sell}}</td>
     </tr>
-        <tr>
+        <tr v-if="long">
       <th scope="row">AUD</th>
       <td> {{AUD.symbol}} {{AUD.buy}}</td>
       <td> {{AUD.symbol}} {{AUD.sell}}</td>
@@ -21,17 +21,17 @@
       <td> {{BRL.symbol}} {{BRL.buy}}</td>
       <td> {{BRL.symbol}} {{BRL.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">CAD</th>
       <td> {{CAD.symbol}} {{CAD.buy}}</td>
       <td> {{CAD.symbol}} {{CAD.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">CHF</th>
       <td> {{CHF.symbol}} {{CHF.buy}}</td>
       <td> {{CHF.symbol}} {{CHF.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">CLP</th>
       <td> {{CLP.symbol}} {{CLP.buy}}</td>
       <td> {{CLP.symbol}} {{CLP.sell}}</td>
@@ -41,7 +41,7 @@
       <td> {{CNY.symbol}} {{CNY.buy}}</td>
       <td> {{CNY.symbol}} {{CNY.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">DKK</th>
       <td> {{DKK.symbol}} {{DKK.buy}}</td>
       <td> {{DKK.symbol}} {{DKK.sell}}</td>
@@ -56,17 +56,17 @@
       <td> {{GBP.symbol}} {{GBP.buy}}</td>
       <td> {{GBP.symbol}} {{GBP.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">HKD</th>
       <td> {{HKD.symbol}} {{HKD.buy}}</td>
       <td> {{HKD.symbol}} {{HKD.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">INR</th>
       <td> {{INR.symbol}} {{INR.buy}}</td>
       <td> {{INR.symbol}} {{INR.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">ISK</th>
       <td> {{ISK.symbol}} {{ISK.buy}}</td>
       <td> {{ISK.symbol}} {{ISK.sell}}</td>
@@ -76,52 +76,57 @@
       <td> {{JPY.symbol}} {{JPY.buy}}</td>
       <td> {{JPY.symbol}} {{JPY.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">KRW</th>
       <td> {{KRW.symbol}} {{KRW.buy}}</td>
       <td> {{KRW.symbol}} {{KRW.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">NZD</th>
       <td> {{NZD.symbol}} {{NZD.buy}}</td>
       <td> {{NZD.symbol}} {{NZD.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">PLN</th>
       <td> {{PLN.symbol}} {{PLN.buy}}</td>
       <td> {{PLN.symbol}} {{PLN.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">RUB</th>
       <td> {{RUB.symbol}} {{RUB.buy}}</td>
       <td> {{RUB.symbol}} {{RUB.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">SEK</th>
       <td> {{SEK.symbol}} {{SEK.buy}}</td>
       <td> {{SEK.symbol}} {{SEK.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">SGD</th>
       <td> {{SGD.symbol}} {{SGD.buy}}</td>
       <td> {{SGD.symbol}} {{SGD.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">THB</th>
       <td> {{THB.symbol}} {{THB.buy}}</td>
       <td> {{THB.symbol}} {{THB.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">TRY</th>
       <td> {{TRY.symbol}} {{TRY.buy}}</td>
       <td> {{TRY.symbol}} {{TRY.sell}}</td>
     </tr>
-       <tr>
+       <tr v-if="long">
       <th scope="row">TWD</th>
       <td> {{TWD.symbol}} {{TWD.buy}}</td>
       <td> {{TWD.symbol}} {{TWD.sell}}</td>
     </tr>
   </tbody>
+  <div class="container">
+    <div class="row">
+    <button class="btn btn-primary">Show more</button>
+    </div>
+  </div>
 </table>
 </template>
 
@@ -154,6 +159,7 @@ export default {
       'THB':{},
       'TRY':{},
       'TWD':{},
+      'long':false,
     }
   },
   computed: {
