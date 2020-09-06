@@ -6,9 +6,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(values, key) in coins" v-bind:key="key">
-      <th scope="row">{{ key }}</th>
-      <td v-for="(val, keyCol) in coinsarray" v-bind:key="keyCol">{{ val }}</td>
+    <tr v-for="(values, key, index) in coins" v-bind:key="key.id">
+      <th scope="row">{{ key }} {{index}} </th>
+      <td v-for=" (coin, key, index) in coins[key]" v-bind:key="coin.id">{{ coin }} {{index}}</td>
     </tr>
   </tbody>
 </table>
@@ -21,18 +21,14 @@ export default {
     return {
       'tableHeader':['Code','Buy','Sell','15 Minutes', 'Last', 'Symbol'],
       'coins':{},
-      'coinscode':{},
-      'coinsarray':{},
+      'bestcoins':{}
     }
-  },
-  computed: {
   },
 created(){
 this.$http.get('https://blockchain.info/ticker')
 .then((data)=>{
 this.coins = data.body
-this.coinscode = Object.keys(data.body)
-this.coinsarray = Object.values(data.body)
+this.bestcoins = data.body
 })
 }
 }
