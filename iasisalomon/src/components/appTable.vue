@@ -1,4 +1,5 @@
-<template>
+`<template>
+<div class="container-fluid">
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -121,15 +122,17 @@
       <td> {{TWD.symbol}} {{TWD.buy}}</td>
       <td> {{TWD.symbol}} {{TWD.sell}}</td>
     </tr>
-  </tbody>
-  <div class="container">
-    <div class="row">
-    <button class="btn btn-primary">Show more</button>
-    </div>
+   </tbody>
+ </table>
+<div class="container">
+  <div class="row">
+    <a v-on:click="long = !long" class="nav-link col text-center">
+  Show More>
+    </a>
   </div>
-</table>
+  </div>
+</div>
 </template>
-
 <script>
 
 export default {
@@ -196,4 +199,4 @@ this.TWD = data.body.TWD
 }
 </script>
 <style scoped>
-</style>
+</style>`
