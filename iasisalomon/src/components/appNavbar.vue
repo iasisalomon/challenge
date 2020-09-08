@@ -32,4 +32,7 @@ export default {
 </script>
 
 <style scoped>
+.navbar {
+  border-bottom: 2px solid black;
+}
 </style>
