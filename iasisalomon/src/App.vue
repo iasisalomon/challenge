@@ -1,7 +1,10 @@
 <template>
   <div class="container" id="app">
     <appnavbar></appnavbar>
-    <component class="col" v-bind:is="rendered"></component>
+    <div class="row">
+    <component class="col-6" v-bind:is="rendered"></component>
+    <component class="col-6" v-bind:is="rendered"></component>
+    </div>
   </div>
 </template>
 

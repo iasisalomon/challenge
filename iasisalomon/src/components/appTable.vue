@@ -1,4 +1,4 @@
-`<template>
+<template>
 <div class="container-fluid">
 <table class="table table-striped table-hover">
   <thead>
