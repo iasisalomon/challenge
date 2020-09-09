@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h3>Buy Crypto with Credit or Debit Card</h3>
-    <div class="input-group input-group-lg">
+    <h3 id="converter-title">Buy Crypto with Credit or Debit Card</h3>
+    <div id="input-group-1" class="input-group input-group-lg">
       <div class="input-group-prepend">
-        <select class="input-group-text" id="inputGroup-sizing-lg">
+        <select v-model="calc.select" class="input-group-text" id="inputGroup-sizing-lg">
           <option
             v-for="coin in coinslabel"
             v-bind:key="coin"
@@ -20,7 +20,7 @@
         aria-describedby="inputGroup-sizing-lg"
       />
     </div>
-    <div class="input-group input-group-lg">
+    <div id="input-group-2" class="input-group input-group-lg">
       <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-lg">BTC</span>
       </div>
@@ -31,13 +31,17 @@
         aria-describedby="inputGroup-sizing-lg"
       />
     </div>
-    <button type="button" class="btn btn-primary btn-lg">Buy Now</button>
+    <button id="buy-now" type="button" class="btn btn-primary btn-lg align-self-center">Buy Now</button>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      calc:{
+        select:"",
+
+      },
       coinslabel: {},
       USD: {},
       AUD: {},
@@ -95,4 +99,17 @@ export default {
   },
 };
 </script>
-<style scoped></style>`
+<style scoped>
+#inputGroup-sizing-lg {
+width: 100px;
+}
+#converter-title{
+margin: 10px auto;
+}
+#input-group-1{
+margin: 40px auto;
+}
+#input-group-2{
+margin: 40px auto;
+}
+</style>
