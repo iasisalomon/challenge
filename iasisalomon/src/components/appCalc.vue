@@ -94,7 +94,7 @@ export default {
   computed: {
     coinConverter: function(){
       return Object.keys(this.coins)
-          .filter( key => this.coins[key].match (this.calc.select))
+          .filter(key => key.match(this.calc.select))
           .reduce( (res, key) => (res[key] = this.coins[key], res), {} );
     }
   },
