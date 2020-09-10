@@ -37,11 +37,6 @@
       />
     </div>
     <button id="buy-now" type="button" class="btn btn-primary btn-lg align-self-center">Buy Now</button>
-     <p>{{coinConverter}}</p>
-    <p>{{calc.coininput}}</p>
-    <p>{{calc.btcinput}}</p>
-    <p>{{coins}}</p>
-   
   </div>
 </template>
 <script>
@@ -55,79 +50,26 @@ export default {
       },
       coinslabel: {},
       coins: {},
-      USD: {},
-      AUD: {},
-      BRL: {},
-      CAD: {},
-      CHF: {},
-      CLP: {},
-      CNY: {},
-      DKK: {},
-      EUR: {},
-      GBP: {},
-      HKD: {},
-      INR: {},
-      ISK: {},
-      JPY: {},
-      KRW: {},
-      NZD: {},
-      PLN: {},
-      RUB: {},
-      SEK: {},
-      SGD: {},
-      THB: {},
-      TRY: {},
-      TWD: {},
     };
   },
   methods: {
     pairci: function(){
-      if (this.calc.coininput != this.calc.btcinput)
-        this.calc.btcinput = this.calc.coininput
+       if (Number(this.calc.coininput) / this.coins.filter(key => key[0].match(this.calc.select))[0][1].buy != this.calc.btcinput)
+       this.calc.btcinput = Number(this.calc.coininput) / this.coins.filter(key => key[0].match(this.calc.select))[0][1].buy
     },
-        pairbtci: function(){
-      if (this.calc.btcinput != this.calc.coininput)
-        this.calc.coininput = this.calc.btcinput
-        return this.calc.btcinput
+    pairbtci: function(){
+      if (this.coins.filter(key => key[0].match(this.calc.select))[0][1].sell * Number(this.calc.btcinput) != this.calc.coininput)
+      this.calc.coininput = this.coins.filter(key => key[0].match(this.calc.select))[0][1].sell * Number(this.calc.btcinput)
     }
   },
   computed: {
-    coinConverter: function(){
-      return Object.keys(this.coins)
-          .filter(key => key.match(this.calc.select))
-          .reduce( (res, key) => (res[key] = this.coins[key], res), {} );
-    }
-  },
-    sneakerProducts() {
-    return this.data.find(category => category.title === 'Sneakers').products;
+    },
+    coincalc:function(){
   },
   created() {
     this.$http.get("https://blockchain.info/ticker").then((data) => {
-      this.coins = data.body
+      this.coins = Object.entries(data.body);
       this.coinslabel = Object.keys(data.body);
-      this.USD = data.body.USD;
-      this.AUD = data.body.AUD;
-      this.BRL = data.body.BRL;
-      this.CAD = data.body.CAD;
-      this.CHF = data.body.CHF;
-      this.CLP = data.body.CLP;
-      this.CNY = data.body.CNY;
-      this.DKK = data.body.DKK;
-      this.EUR = data.body.EUR;
-      this.GBP = data.body.GBP;
-      this.HKD = data.body.HKD;
-      this.INR = data.body.INR;
-      this.ISK = data.body.ISK;
-      this.JPY = data.body.JPY;
-      this.KRW = data.body.KRW;
-      this.NZD = data.body.NZD;
-      this.PLN = data.body.PLN;
-      this.RUB = data.body.RUB;
-      this.SEK = data.body.SEK;
-      this.SGD = data.body.SGD;
-      this.THB = data.body.THB;
-      this.TRY = data.body.TRY;
-      this.TWD = data.body.TWD;
     });
   },
 };
