@@ -3,17 +3,20 @@
     <h3 id="converter-title">Buy Crypto with Credit or Debit Card</h3>
     <div id="input-group-1" class="input-group input-group-lg">
       <div class="input-group-prepend">
-        <select v-model="calc.select" class="input-group-text" id="inputGroup-sizing-lg">
+        <select v-model="calc.select" 
+        class="input-group-text" 
+        id="inputGroup-sizing-lg">
           <option
             v-for="coin in coinslabel"
             v-bind:key="coin"
             class="dropdown-item"
-            href="#"
             >{{ coin }}</option
           >
         </select>
       </div>
       <input
+        v-model="calc.coininput"
+        v-on:change="pairci"
         type="text"
         class="form-control"
         aria-label="Sizing example input"
@@ -25,6 +28,8 @@
         <span class="input-group-text" id="inputGroup-sizing-lg">BTC</span>
       </div>
       <input
+        v-model="calc.btcinput"
+        v-on:change="pairbtci"
         type="text"
         class="form-control"
         aria-label="Sizing example input"
@@ -32,6 +37,8 @@
       />
     </div>
     <button id="buy-now" type="button" class="btn btn-primary btn-lg align-self-center">Buy Now</button>
+    <p>{{calc.coininput}}</p>
+    <p>{{calc.btcinput}}</p>
   </div>
 </template>
 <script>
@@ -39,8 +46,9 @@ export default {
   data() {
     return {
       calc:{
-        select:"",
-
+        select:"USD",
+        coininput:"",
+        btcinput:""
       },
       coinslabel: {},
       USD: {},
@@ -68,7 +76,23 @@ export default {
       TWD: {},
     };
   },
-  computed: {},
+  methods: {
+    pairci: function(){
+        
+      if (this.calc.coininput != this.calc.btcinput)
+        this.calc.btcinput = this.calc.coininput
+    },
+        pairbtci: function(){
+      if (this.calc.btcinput != this.calc.coininput)
+        this.calc.coininput = this.calc.btcinput
+        return this.calc.btcinput
+    }
+  },
+  computed: {
+    coinConverter: function(){
+      return this.calc.select.last
+    }
+  },
   created() {
     this.$http.get("https://blockchain.info/ticker").then((data) => {
       this.coinslabel = Object.keys(data.body);
