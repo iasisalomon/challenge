@@ -37,8 +37,11 @@
       />
     </div>
     <button id="buy-now" type="button" class="btn btn-primary btn-lg align-self-center">Buy Now</button>
+     <p>{{coinConverter}}</p>
     <p>{{calc.coininput}}</p>
     <p>{{calc.btcinput}}</p>
+    <p>{{coins}}</p>
+   
   </div>
 </template>
 <script>
@@ -51,6 +54,7 @@ export default {
         btcinput:""
       },
       coinslabel: {},
+      coins: {},
       USD: {},
       AUD: {},
       BRL: {},
@@ -78,7 +82,6 @@ export default {
   },
   methods: {
     pairci: function(){
-        
       if (this.calc.coininput != this.calc.btcinput)
         this.calc.btcinput = this.calc.coininput
     },
@@ -90,11 +93,17 @@ export default {
   },
   computed: {
     coinConverter: function(){
-      return this.calc.select.last
+      return Object.keys(this.coins)
+          .filter( key => this.coins[key].match (this.calc.select))
+          .reduce( (res, key) => (res[key] = this.coins[key], res), {} );
     }
+  },
+    sneakerProducts() {
+    return this.data.find(category => category.title === 'Sneakers').products;
   },
   created() {
     this.$http.get("https://blockchain.info/ticker").then((data) => {
+      this.coins = data.body
       this.coinslabel = Object.keys(data.body);
       this.USD = data.body.USD;
       this.AUD = data.body.AUD;
