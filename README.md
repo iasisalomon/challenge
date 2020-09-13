@@ -15,7 +15,7 @@ You must use this (https://blockchain.info/ticker ) API to get the exchanges and
 
 The Candlesticks graphic should have an OHLCV chart (we recommend trading-vue-js) and it should be filled with proper formatted data. An example source can be:
 
-https://api-pub.bitfinex.com/v2/candles/trade:1h:fUSD:a30:p2:p30/hist
+
 
 ### Submission
 
