@@ -1,4 +1,4 @@
-import "./assets/app.css"
+import "./assets/app.css";
 import "@babel/polyfill";
 import "mutationobserver-shim";
 import Vue from "vue";
@@ -7,7 +7,6 @@ import router from "./router";
 import jQuery from "jquery";
 import "popper.js";
 import "bootstrap";
-
 
 window.$ = window.jQuery = jQuery;
 

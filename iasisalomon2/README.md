@@ -1,4 +1,4 @@
-# iasisalomon2
+# VUE PROJECT FOR BTC TRADER IN VUEJS
 
 ## Project setup
 ```
