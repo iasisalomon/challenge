@@ -67,10 +67,14 @@ export default {
     coincalc:function(){
   },
   created() {
-    this.$http.get("https://blockchain.info/ticker").then((data) => {
-      this.coins = Object.entries(data.body);
-      this.coinslabel = Object.keys(data.body);
-    });
+		fetch("https://blockchain.info/ticker")
+			.then(response => response.json())
+			.then(info => {
+          this.coins = Object.entries(info);
+          this.coinslabel = Object.keys(info);
+        console.log (info)
+			})
+			.catch(error => console.log(error))
   },
 };
 </script>

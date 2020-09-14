@@ -16,12 +16,20 @@ export default {
         }
     },
     created(){
-        this.$http.get('https://cors-anywhere.herokuapp.com/https://api-pub.bitfinex.com/v2/candles/trade:1h:tBTCUSD/hist?limit=120&sort=1')
-        .then((data) => {
-        this.ohlcv = data.body.map(a=>{
-            return [a[0],a[1],a[3],a[4],a[2],a[5]]
-        })
-    })
+fetch('http://example.com/movies.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(myJson);
+  });
+
+    //     this.$http.get('https://cors-anywhere.herokuapp.com/https://api-pub.bitfinex.com/v2/candles/trade:1h:tBTCUSD/hist?limit=120&sort=1')
+    //     .then((data) => {
+    //     this.ohlcv = data.body.map(a=>{
+    //         return [a[0],a[1],a[3],a[4],a[2],a[5]]
+    //     })
+    // })
 }
 }
 </script> 
