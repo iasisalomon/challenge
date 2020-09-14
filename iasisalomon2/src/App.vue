@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <b-nav class="navbar col-12" pills>
-        <b-nav-item v-bind:to="{name:Home}" active>Bitcoin converter</b-nav-item>
+        <b-nav-item v-bind:to="{}" active>Bitcoin converter</b-nav-item>
         <b-nav-item>Candlesticks graphic</b-nav-item>
       </b-nav>
       </div>

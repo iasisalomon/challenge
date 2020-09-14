@@ -72,7 +72,6 @@ export default {
 			.then(info => {
           this.coins = Object.entries(info);
           this.coinslabel = Object.keys(info);
-        console.log (info)
 			})
 			.catch(error => console.log(error))
   },
