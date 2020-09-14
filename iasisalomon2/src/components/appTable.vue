@@ -168,34 +168,36 @@ export default {
   computed: {
 
   },
-created(){
-this.$http.get('https://blockchain.info/ticker')
-.then((data)=>{
-this.USD = data.body.USD
-this.AUD = data.body.AUD
-this.BRL = data.body.BRL
-this.CAD = data.body.CAD
-this.CHF = data.body.CHF
-this.CLP = data.body.CLP
-this.CNY = data.body.CNY
-this.DKK = data.body.DKK
-this.EUR = data.body.EUR
-this.GBP = data.body.GBP
-this.HKD = data.body.HKD
-this.INR = data.body.INR
-this.ISK = data.body.ISK
-this.JPY = data.body.JPY
-this.KRW = data.body.KRW
-this.NZD = data.body.NZD
-this.PLN = data.body.PLN
-this.RUB = data.body.RUB
-this.SEK = data.body.SEK
-this.SGD = data.body.SGD
-this.THB = data.body.THB
-this.TRY = data.body.TRY
-this.TWD = data.body.TWD
+  created() {
+		fetch("https://blockchain.info/ticker")
+			.then(response => response.json())
+			.then(info => {
+        this.USD = info.USD
+this.AUD = info.AUD
+this.BRL = info.BRL
+this.CAD = info.CAD
+this.CHF = info.CHF
+this.CLP = info.CLP
+this.CNY = info.CNY
+this.DKK = info.DKK
+this.EUR = info.EUR
+this.GBP = info.GBP
+this.HKD = info.HKD
+this.INR = info.INR
+this.ISK = info.ISK
+this.JPY = info.JPY
+this.KRW = info.KRW
+this.NZD = info.NZD
+this.PLN = info.PLN
+this.RUB = info.RUB
+this.SEK = info.SEK
+this.SGD = info.SGD
+this.THB = info.THB
+this.TRY = info.TRY
+this.TWD = info.TWD
 })
-}
+			.catch(error => console.log(error))
+  },
 }
 </script>
 <style scoped>
