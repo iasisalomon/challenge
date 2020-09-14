@@ -1,13 +1,15 @@
+import "./assets/app.css"
 import "@babel/polyfill";
 import "mutationobserver-shim";
 import Vue from "vue";
-import "./plugins/bootstrap-vue";
 import App from "./App.vue";
 import router from "./router";
-import "jquery";
+import jQuery from "jquery";
 import "popper.js";
 import "bootstrap";
-import "./assets/app.css"
+
+
+window.$ = window.jQuery = jQuery;
 
 Vue.config.productionTip = false;
 
