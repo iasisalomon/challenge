@@ -1,13 +1,10 @@
 <template>
   <div id="app">
     <div class="container">
-      <div class="row">
-        <b-nav class="navbar col-12" pills>
-        <b-nav-item v-bind:to="{}" active>Bitcoin converter</b-nav-item>
-        <b-nav-item>Candlesticks graphic</b-nav-item>
-      </b-nav>
+      <div  id="nav" class="row nav nav-pills justify-content-center">
+        <router-link class="nav-item" to="/">Bitcoin Converter</router-link>
+        <router-link to="candles">Candlesticks Graph</router-link>
       </div>
-
     <div class="row" >
         <router-view />
     </div>
@@ -16,7 +13,5 @@
 </template>
 
 <style scoped>
-.navbar {
-  border-bottom: 2px solid black;
-}
+
 </style>
