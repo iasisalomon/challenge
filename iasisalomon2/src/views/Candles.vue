@@ -1,11 +1,12 @@
 <template>
-  <div class="graph">
     <div class="container">
+    <div class="row justify-content-center">
+        <h1> Candlesticks Graph BTC/USD 1h </h1>
+    </div>
       <div class="row justify-content-center">
-        <appCandle class="col-12" ></appCandle>
+        <appCandle class="graph"></appCandle>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -18,3 +19,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.graph {
+margin: 15px;
+}
+</style>
