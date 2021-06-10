@@ -14,27 +14,3 @@ You must use this (https://blockchain.info/ticker ) API to get the exchanges and
 #### Candlesticks graphic view
 
 The Candlesticks graphic should have an OHLCV chart (we recommend trading-vue-js) and it should be filled with proper formatted data. An example source can be:
-
-
-
-### Submission
-
-Fork this repository and send us a pull request with your code.
-* Put the code within a folder named as your github/bitbucket username. 
-* Add a readme file with the steps to run the app. 
-
-We'll review it and get back to you in order to talk about the submission
-
-### Optional
-* If you are able to set up and (in any view) show real time information from a websocket of any source, it will be highly considered in the overall review.
-
-### Extra points
-
-* Use a component library (We recommend Vuetify).
-* Responsive design (Grid system, Flexbox, CSS Grid).
-* Add test cases to components.
-
-
-
-
-Contact us at  [jobs@emdx.io](mailto:jobs@emdx.io)  if you need more details.
